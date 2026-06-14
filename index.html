@@ -143,22 +143,13 @@ body{
   transform:translateX(3px);
 }
 
-/* avatar = kanal profil fotoğrafı */
-.yt-avatar{
-  width:80px;
-  height:80px;
-  flex-shrink:0;
-  object-fit:cover;
-  background:#222;
-  display:block;
-}
-
 .yt-avatar-wrap{
   width:80px;
   height:80px;
   flex-shrink:0;
   position:relative;
   overflow:hidden;
+  background:#1c1c1c;
 }
 
 .yt-avatar-wrap img{
@@ -315,48 +306,35 @@ body{
 </head>
 <body>
 
-<!-- HERO -->
 <div class="hero">
   <svg class="wolf-hero" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- outer glow ring -->
     <circle cx="55" cy="55" r="53" stroke="#ff2d2d" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.3"/>
-    <!-- body fill -->
     <path d="M28 74 L26 40 L33 24 L43 34 L55 30 L67 34 L77 24 L84 40 L82 74" fill="#1a1a1a" stroke="#ff2d2d" stroke-width="1.5" stroke-linejoin="round"/>
-    <!-- ears -->
     <path d="M33 24 L37 12 L45 26 L43 34 Z" fill="#cc0000" stroke="#ff2d2d" stroke-width="1"/>
     <path d="M77 24 L73 12 L65 26 L67 34 Z" fill="#cc0000" stroke="#ff2d2d" stroke-width="1"/>
-    <!-- ear inner -->
     <path d="M35 22 L38 15 L43 24 Z" fill="#ff2d2d" opacity="0.4"/>
     <path d="M75 22 L72 15 L67 24 Z" fill="#ff2d2d" opacity="0.4"/>
-    <!-- side cheeks -->
     <path d="M26 40 L18 33 L27 44" fill="#1a1a1a" stroke="#ff2d2d" stroke-width="1"/>
     <path d="M84 40 L92 33 L83 44" fill="#1a1a1a" stroke="#ff2d2d" stroke-width="1"/>
-    <!-- eyes -->
     <ellipse cx="43" cy="50" rx="6" ry="5" fill="#0a0a0a" stroke="#ff2d2d" stroke-width="1.2"/>
     <ellipse cx="67" cy="50" rx="6" ry="5" fill="#0a0a0a" stroke="#ff2d2d" stroke-width="1.2"/>
-    <!-- iris glow -->
     <circle cx="43" cy="50" r="2.5" fill="#ff2d2d"/>
     <circle cx="67" cy="50" r="2.5" fill="#ff2d2d"/>
-    <!-- highlight -->
     <circle cx="44.5" cy="48.5" r="1" fill="#fff" opacity="0.7"/>
     <circle cx="68.5" cy="48.5" r="1" fill="#fff" opacity="0.7"/>
-    <!-- snout -->
     <path d="M46 62 Q55 70 64 62 Q60 57 55 58.5 Q50 57 46 62Z" fill="#0d0d0d" stroke="#ff2d2d" stroke-width="1"/>
     <ellipse cx="55" cy="61" rx="4" ry="2.5" fill="#cc0000"/>
-    <!-- mouth -->
     <path d="M50 64.5 Q55 69 60 64.5" fill="none" stroke="#ff2d2d" stroke-width="1.2"/>
-    <!-- fangs -->
     <path d="M52 65 L51 69 L53 65" fill="#fff" opacity="0.6"/>
     <path d="M58 65 L59 69 L57 65" fill="#fff" opacity="0.6"/>
   </svg>
 
   <div class="hero-name">BEYAZ <span>KURT</span></div>
-  <div class="hero-sub">Gündem &nbsp;·&nbsp; Oyun &nbsp;·&nbsp; Podcast &nbsp;·&nbsp; Kesit</div>
+  <div class="hero-sub">Gündem  ·  Oyun  ·  Podcast  ·  Kesit</div>
 </div>
 
 <div class="wrap">
 
-  <!-- YOUTUBE CHANNELS -->
   <div class="sec">
     <div class="sec-head">
       <div class="sec-label">YouTube Kanalları</div>
@@ -365,7 +343,6 @@ body{
 
     <div class="yt-grid">
 
-      <!-- ANA KANAL -->
       <a class="yt-card main" href="https://www.youtube.com/@BeyazKurt" target="_blank" rel="noopener">
         <div class="yt-avatar-wrap">
           <img id="av0" src="" alt="Beyaz Kurt">
@@ -381,7 +358,6 @@ body{
         <div class="yt-arrow">›</div>
       </a>
 
-      <!-- OYUN -->
       <a class="yt-card" href="https://www.youtube.com/@beyazkurtoyun" target="_blank" rel="noopener">
         <div class="yt-avatar-wrap">
           <img id="av1" src="" alt="Beyaz Kurt Oyun">
@@ -397,7 +373,6 @@ body{
         <div class="yt-arrow">›</div>
       </a>
 
-      <!-- PODCAST -->
       <a class="yt-card" href="https://www.youtube.com/@BeyazKurtPodcast" target="_blank" rel="noopener">
         <div class="yt-avatar-wrap">
           <img id="av2" src="" alt="Beyaz Kurt Podcast">
@@ -413,7 +388,6 @@ body{
         <div class="yt-arrow">›</div>
       </a>
 
-      <!-- KESİT -->
       <a class="yt-card" href="https://www.youtube.com/@beyazkurtkesit" target="_blank" rel="noopener">
         <div class="yt-avatar-wrap">
           <img id="av3" src="" alt="Beyaz Kurt Kesitleri">
@@ -429,7 +403,6 @@ body{
         <div class="yt-arrow">›</div>
       </a>
 
-      <!-- GÜNDEM -->
       <a class="yt-card" href="https://www.youtube.com/@beyazkurtreal" target="_blank" rel="noopener">
         <div class="yt-avatar-wrap">
           <img id="av4" src="" alt="Beyaz Kurt Gündem">
@@ -448,7 +421,6 @@ body{
     </div>
   </div>
 
-  <!-- SOCIAL MEDIA -->
   <div class="sec">
     <div class="sec-head">
       <div class="sec-label">Sosyal Medya</div>
@@ -457,7 +429,6 @@ body{
 
     <div class="soc-list">
 
-      <!-- Instagram -->
       <a class="soc-card" href="https://www.instagram.com/beyazkurtrealx/" target="_blank" rel="noopener">
         <div class="soc-icon bg-ig">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
@@ -473,7 +444,6 @@ body{
         <span class="soc-arr">›</span>
       </a>
 
-      <!-- X / Twitter -->
       <a class="soc-card" href="https://twitter.com/beyazkurtreal" target="_blank" rel="noopener">
         <div class="soc-icon bg-x">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
@@ -487,8 +457,7 @@ body{
         <span class="soc-arr">›</span>
       </a>
 
-      <!-- Spotify -->
-      <a class="soc-card" href="https://open.spotify.com/show/5K3k6vI14uSUQCBBCLNbGH" target="_blank" rel="noopener">
+      <a class="soc-card" href="https://open.spotify.com/show/5R1xIEXtJz4R8Zf6W1s6K1" target="_blank" rel="noopener">
         <div class="soc-icon bg-sp">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
             <circle cx="12" cy="12" r="10" stroke="#1DB954" stroke-width="1.8"/>
@@ -504,7 +473,6 @@ body{
         <span class="soc-arr">›</span>
       </a>
 
-      <!-- Discord -->
       <a class="soc-card" href="https://discord.com/invite/beyazkurt" target="_blank" rel="noopener">
         <div class="soc-icon bg-dc">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="#7289DA">
@@ -523,11 +491,10 @@ body{
 
 </div>
 
-<div class="footer">🐺 &nbsp;<span>beyaz kurt</span>&nbsp; · tüm hakları saklıdır</div>
+<div class="footer">🐺  <span>beyaz kurt</span>  · tüm hakları saklıdır</div>
 
 <script>
-// Channel ID'leri — profil fotoğrafları için
-// Format: https://yt3.ggpht.com/{channel_id}=s200-c-k-c0x00ffffff-no-rj
+// Channel ID'leri — API ile profil fotoğraflarını çekmek için
 const channels = [
   { id: 'av0', channelId: 'UC_gDW50IarbxpCycmrIlrtw' }, // Ana kanal
   { id: 'av1', channelId: 'UCW2bxDKDmwHBGeMN9yddung' }, // Oyun
@@ -536,36 +503,40 @@ const channels = [
   { id: 'av4', channelId: 'UCvzpmRfiLNxKRFRQTKrUang' }, // Gündem
 ];
 
-// YouTube profil fotoğrafı için iki farklı URL formatı dene
-const formats = [
-  id => `https://yt3.ggpht.com/${id}=s200-c-k-c0x00ffffff-no-rj`,
-  id => `https://yt3.googleusercontent.com/${id}=s200-c-k-c0x00ffffff-no-rj`,
-  id => `https://yt3.ggpht.com/ytc/${id}=s200`,
-];
+// Asenkron fonksiyon ile her bir kanal ID'sini API'ye soruyoruz
+async function fetchAvatars() {
+  for (const { id, channelId } of channels) {
+    const imgElement = document.getElementById(id);
+    if (!imgElement) continue;
 
-channels.forEach(({ id, channelId }) => {
-  const img = document.getElementById(id);
-  if (!img) return;
-
-  let tried = 0;
-  function tryNext() {
-    if (tried >= formats.length) {
-      // tüm formatlar başarısız — placeholder
-      img.parentElement.innerHTML = `
+    try {
+      // CORS sorununu aşmak için DecAPI adlı güvenilir servisi kullanıyoruz
+      const response = await fetch(`https://decapi.me/youtube/avatar/${channelId}`);
+      if (!response.ok) throw new Error("API yanıt vermedi");
+      
+      const imageUrl = await response.text();
+      
+      // Dönen yanıt bir URL ise görsele ekle
+      if (imageUrl.startsWith('http')) {
+        imgElement.src = imageUrl;
+      } else {
+        throw new Error("Geçersiz URL formatı");
+      }
+    } catch (error) {
+      console.error(`${channelId} için avatar yüklenemedi:`, error);
+      // Hata alınırsa (veya API çökerse) boş durmaması için placeholder ekle
+      imgElement.parentElement.innerHTML = `
         <div class="yt-avatar-placeholder">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="1.2">
             <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
           </svg>
         </div>`;
-      return;
     }
-    img.src = formats[tried](channelId);
-    tried++;
   }
+}
 
-  img.onerror = tryNext;
-  tryNext();
-});
+// Yükleme işlemini başlat
+fetchAvatars();
 </script>
 </body>
 </html>
