@@ -4,423 +4,568 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Beyaz Kurt</title>
-<meta property="og:title" content="Beyaz Kurt">
+<meta property="og:title" content="Beyaz Kurt — Tüm Kanallar">
 <meta property="og:description" content="Gündem · Oyun · Podcast · Kesit">
-<meta name="theme-color" content="#0a0a0b">
+<meta name="theme-color" content="#111111">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Oswald:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
-  body {
-    background: #0a0a0b;
-    color: #e8e6e1;
-    font-family: 'Inter', sans-serif;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 56px 20px 72px;
-    position: relative;
-    overflow-x: hidden;
-  }
+:root{
+  --bg:#111;
+  --surface:#1a1a1a;
+  --border:#2a2a2a;
+  --white:#ffffff;
+  --off:#c8c8c8;
+  --muted:#777;
+  --red:#ff2d2d;
+  --accent:#ff2d2d;
+}
 
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background: radial-gradient(ellipse 70% 50% at 50% -10%, rgba(180,180,210,0.07) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-  }
+body{
+  background:var(--bg);
+  color:var(--white);
+  font-family:'Inter',sans-serif;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:0 0 80px;
+  overflow-x:hidden;
+}
 
-  .wrap {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    max-width: 480px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+/* ── HERO ── */
+.hero{
+  width:100%;
+  background:#000;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:52px 20px 40px;
+  position:relative;
+  overflow:hidden;
+}
 
-  .wolf-mark {
-    width: 88px;
-    height: 88px;
-    margin-bottom: 22px;
-    filter: drop-shadow(0 0 18px rgba(255,255,255,0.08));
-  }
+.hero::after{
+  content:'';
+  position:absolute;
+  bottom:0; left:0; right:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--red),transparent);
+}
 
-  .name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 48px;
-    letter-spacing: 0.12em;
-    color: #f0ede8;
-    line-height: 1;
-    text-align: center;
-  }
+/* big wolf SVG */
+.wolf-hero{
+  width:110px;
+  height:110px;
+  margin-bottom:20px;
+}
 
-  .tagline {
-    font-size: 11.5px;
-    letter-spacing: 0.22em;
-    color: #555;
-    text-transform: uppercase;
-    margin-top: 9px;
-    margin-bottom: 40px;
-    text-align: center;
-  }
+.hero-name{
+  font-family:'Black Ops One',sans-serif;
+  font-size:52px;
+  letter-spacing:0.06em;
+  color:#fff;
+  line-height:1;
+  text-transform:uppercase;
+}
 
-  .section-label {
-    font-size: 10px;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: #3a3a3a;
-    align-self: flex-start;
-    margin-bottom: 10px;
-    margin-top: 32px;
-    padding-left: 2px;
-  }
+.hero-name span{
+  color:var(--red);
+}
 
-  .section-label.first { margin-top: 0; }
+.hero-sub{
+  margin-top:8px;
+  font-family:'Oswald',sans-serif;
+  font-size:13px;
+  letter-spacing:0.28em;
+  color:var(--muted);
+  text-transform:uppercase;
+}
 
-  .divider {
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(to right, transparent, #222228, transparent);
-    margin-bottom: 14px;
-  }
+/* ── WRAP ── */
+.wrap{
+  width:100%;
+  max-width:520px;
+  padding:0 16px;
+}
 
-  /* YouTube channel cards */
-  .channels-grid {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
+/* ── SECTION ── */
+.sec{
+  margin-top:36px;
+}
 
-  .ch-card {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 14px 14px 13px;
-    background: #111114;
-    border: 0.5px solid #1e1e24;
-    border-radius: 12px;
-    text-decoration: none;
-    color: inherit;
-    gap: 10px;
-    transition: border-color 0.22s, background 0.22s;
-    overflow: hidden;
-    position: relative;
-  }
+.sec-head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:14px;
+}
 
-  .ch-card:hover {
-    border-color: #353540;
-    background: #141418;
-  }
+.sec-label{
+  font-family:'Oswald',sans-serif;
+  font-size:11px;
+  letter-spacing:0.3em;
+  text-transform:uppercase;
+  color:var(--red);
+}
 
-  .ch-card:hover .ch-banner {
-    opacity: 0.65;
-  }
+.sec-line{
+  flex:1;
+  height:1px;
+  background:var(--border);
+}
 
-  .ch-banner {
-    width: calc(100% + 28px);
-    height: 64px;
-    object-fit: cover;
-    object-position: center top;
-    margin: -14px -14px 0;
-    display: block;
-    opacity: 0.5;
-    transition: opacity 0.3s;
-    border-radius: 11px 11px 0 0;
-    background: #16161c;
-  }
+/* ── YOUTUBE CARDS ── */
+.yt-grid{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
 
-  .ch-banner-placeholder {
-    width: calc(100% + 28px);
-    height: 64px;
-    margin: -14px -14px 0;
-    background: #14141a;
-    border-radius: 11px 11px 0 0;
-    display: none;
-    align-items: center;
-    justify-content: center;
-  }
+.yt-card{
+  display:flex;
+  align-items:center;
+  gap:0;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:14px;
+  text-decoration:none;
+  color:inherit;
+  overflow:hidden;
+  transition:border-color .18s,transform .18s;
+  cursor:pointer;
+}
 
-  .ch-info {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    padding-top: 4px;
-  }
+.yt-card:hover{
+  border-color:var(--red);
+  transform:translateX(3px);
+}
 
-  .ch-title {
-    font-size: 13px;
-    font-weight: 500;
-    color: #ccc8c0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
-  }
+/* avatar = kanal profil fotoğrafı */
+.yt-avatar{
+  width:80px;
+  height:80px;
+  flex-shrink:0;
+  object-fit:cover;
+  background:#222;
+  display:block;
+}
 
-  .ch-yt-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 9.5px;
-    letter-spacing: 0.08em;
-    color: #c0392b;
-    text-transform: uppercase;
-    font-weight: 500;
-    opacity: 0.75;
-  }
+.yt-avatar-wrap{
+  width:80px;
+  height:80px;
+  flex-shrink:0;
+  position:relative;
+  overflow:hidden;
+}
 
-  /* Social links */
-  .social-list {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
+.yt-avatar-wrap img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
 
-  .soc-link {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 13px 16px;
-    background: #111114;
-    border: 0.5px solid #1e1e24;
-    border-radius: 10px;
-    text-decoration: none;
-    color: inherit;
-    transition: border-color 0.22s, background 0.22s;
-  }
+.yt-avatar-placeholder{
+  width:80px;
+  height:80px;
+  background:#1c1c1c;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
 
-  .soc-link:hover {
-    border-color: #353540;
-    background: #141418;
-  }
+.yt-body{
+  flex:1;
+  padding:14px 16px;
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
 
-  .soc-link:hover .arrow { color: #606060; transform: translateX(2px); }
+.yt-title{
+  font-family:'Oswald',sans-serif;
+  font-size:18px;
+  font-weight:700;
+  letter-spacing:0.03em;
+  color:var(--white);
+  line-height:1.1;
+}
 
-  .soc-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
+.yt-desc{
+  font-size:11.5px;
+  color:var(--muted);
+  letter-spacing:0.02em;
+}
 
-  .soc-icon svg { width: 18px; height: 18px; }
+.yt-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  margin-top:4px;
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:0.1em;
+  color:var(--red);
+  text-transform:uppercase;
+}
 
-  .soc-name {
-    font-size: 13.5px;
-    font-weight: 500;
-    color: #c8c4bc;
-    flex: 1;
-  }
+.yt-arrow{
+  margin-left:auto;
+  padding-right:16px;
+  color:var(--border);
+  font-size:22px;
+  font-weight:300;
+  transition:color .18s;
+  flex-shrink:0;
+}
+.yt-card:hover .yt-arrow{ color:var(--red); }
 
-  .soc-handle {
-    font-size: 11px;
-    color: #444440;
-    letter-spacing: 0.02em;
-  }
+/* main card bigger */
+.yt-card.main .yt-avatar-wrap{
+  width:90px;
+  height:90px;
+}
+.yt-card.main .yt-title{
+  font-size:22px;
+}
 
-  .arrow {
-    color: #2e2e2e;
-    font-size: 18px;
-    line-height: 1;
-    transition: color 0.2s, transform 0.2s;
-    font-weight: 300;
-  }
+/* ── SOCIAL ── */
+.soc-list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
 
-  .ic-twitter   { background: rgba(29,161,242,0.08); }
-  .ic-instagram { background: rgba(225,48,108,0.08); }
-  .ic-spotify   { background: rgba(30,215,96,0.08);  }
-  .ic-discord   { background: rgba(114,137,218,0.08); }
+.soc-card{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:14px 16px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:14px;
+  text-decoration:none;
+  color:inherit;
+  transition:border-color .18s,transform .18s;
+}
 
-  .footer-line {
-    margin-top: 60px;
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    color: #262624;
-    text-transform: uppercase;
-    text-align: center;
-  }
+.soc-card:hover{
+  border-color:#555;
+  transform:translateX(3px);
+}
+
+.soc-icon{
+  width:42px;
+  height:42px;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+
+.soc-info{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+
+.soc-name{
+  font-family:'Oswald',sans-serif;
+  font-size:16px;
+  letter-spacing:0.04em;
+  color:var(--white);
+}
+
+.soc-handle{
+  font-size:11px;
+  color:var(--muted);
+}
+
+.soc-arr{
+  color:var(--border);
+  font-size:20px;
+  transition:color .18s;
+}
+.soc-card:hover .soc-arr{ color:#888; }
+
+/* icon bg */
+.bg-yt { background:rgba(255,45,45,.12); }
+.bg-ig { background:rgba(225,48,108,.12); }
+.bg-x  { background:rgba(200,200,200,.08); }
+.bg-sp { background:rgba(30,215,96,.10); }
+.bg-dc { background:rgba(114,137,218,.12); }
+
+/* footer */
+.footer{
+  margin-top:60px;
+  text-align:center;
+  font-size:10px;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:#2a2a2a;
+}
+.footer span{ color:#333; }
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <!-- Wolf SVG mark -->
-  <svg class="wolf-mark" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="44" cy="44" r="43" stroke="#242428" stroke-width="0.8"/>
-    <path d="M22 58 L20 32 L26 20 L34 28 L44 24 L54 28 L62 20 L68 32 L66 58" fill="none" stroke="#666" stroke-width="1.2" stroke-linejoin="round"/>
-    <path d="M20 32 L14 26 L22 34" fill="#3a3a40" stroke="#666" stroke-width="0.8"/>
-    <path d="M68 32 L74 26 L66 34" fill="#3a3a40" stroke="#666" stroke-width="0.8"/>
-    <path d="M26 20 L30 14 L36 22 L34 28 Z" fill="#2e2e36" stroke="#666" stroke-width="0.8"/>
-    <path d="M62 20 L58 14 L52 22 L54 28 Z" fill="#2e2e36" stroke="#666" stroke-width="0.8"/>
-    <ellipse cx="35" cy="40" rx="4" ry="3.5" fill="#111116" stroke="#888" stroke-width="0.6"/>
-    <ellipse cx="53" cy="40" rx="4" ry="3.5" fill="#111116" stroke="#888" stroke-width="0.6"/>
-    <circle cx="35" cy="40" r="1.5" fill="#ddd8cc"/>
-    <circle cx="53" cy="40" r="1.5" fill="#ddd8cc"/>
-    <path d="M38 50 Q44 56 50 50 Q47 47 44 48 Q41 47 38 50Z" fill="#1e1e24" stroke="#777" stroke-width="0.6"/>
-    <ellipse cx="44" cy="49" rx="2.5" ry="1.5" fill="#444"/>
-    <path d="M41 51.5 Q44 54 47 51.5" fill="none" stroke="#666" stroke-width="0.7"/>
+<!-- HERO -->
+<div class="hero">
+  <svg class="wolf-hero" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- outer glow ring -->
+    <circle cx="55" cy="55" r="53" stroke="#ff2d2d" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.3"/>
+    <!-- body fill -->
+    <path d="M28 74 L26 40 L33 24 L43 34 L55 30 L67 34 L77 24 L84 40 L82 74" fill="#1a1a1a" stroke="#ff2d2d" stroke-width="1.5" stroke-linejoin="round"/>
+    <!-- ears -->
+    <path d="M33 24 L37 12 L45 26 L43 34 Z" fill="#cc0000" stroke="#ff2d2d" stroke-width="1"/>
+    <path d="M77 24 L73 12 L65 26 L67 34 Z" fill="#cc0000" stroke="#ff2d2d" stroke-width="1"/>
+    <!-- ear inner -->
+    <path d="M35 22 L38 15 L43 24 Z" fill="#ff2d2d" opacity="0.4"/>
+    <path d="M75 22 L72 15 L67 24 Z" fill="#ff2d2d" opacity="0.4"/>
+    <!-- side cheeks -->
+    <path d="M26 40 L18 33 L27 44" fill="#1a1a1a" stroke="#ff2d2d" stroke-width="1"/>
+    <path d="M84 40 L92 33 L83 44" fill="#1a1a1a" stroke="#ff2d2d" stroke-width="1"/>
+    <!-- eyes -->
+    <ellipse cx="43" cy="50" rx="6" ry="5" fill="#0a0a0a" stroke="#ff2d2d" stroke-width="1.2"/>
+    <ellipse cx="67" cy="50" rx="6" ry="5" fill="#0a0a0a" stroke="#ff2d2d" stroke-width="1.2"/>
+    <!-- iris glow -->
+    <circle cx="43" cy="50" r="2.5" fill="#ff2d2d"/>
+    <circle cx="67" cy="50" r="2.5" fill="#ff2d2d"/>
+    <!-- highlight -->
+    <circle cx="44.5" cy="48.5" r="1" fill="#fff" opacity="0.7"/>
+    <circle cx="68.5" cy="48.5" r="1" fill="#fff" opacity="0.7"/>
+    <!-- snout -->
+    <path d="M46 62 Q55 70 64 62 Q60 57 55 58.5 Q50 57 46 62Z" fill="#0d0d0d" stroke="#ff2d2d" stroke-width="1"/>
+    <ellipse cx="55" cy="61" rx="4" ry="2.5" fill="#cc0000"/>
+    <!-- mouth -->
+    <path d="M50 64.5 Q55 69 60 64.5" fill="none" stroke="#ff2d2d" stroke-width="1.2"/>
+    <!-- fangs -->
+    <path d="M52 65 L51 69 L53 65" fill="#fff" opacity="0.6"/>
+    <path d="M58 65 L59 69 L57 65" fill="#fff" opacity="0.6"/>
   </svg>
 
-  <div class="name">BEYAZ KURT</div>
-  <div class="tagline">Gündem · Oyun · Podcast · Kesit</div>
-
-  <div class="section-label first">YouTube Kanalları</div>
-  <div class="divider"></div>
-
-  <div class="channels-grid">
-    <a class="ch-card" href="https://www.youtube.com/@BeyazKurt" target="_blank" rel="noopener">
-      <img class="ch-banner" id="b0" alt="Beyaz Kurt kanal kapağı">
-      <div class="ch-banner-placeholder" id="p0">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="1.2"><rect x="2" y="4" width="20" height="16" rx="3"/><polygon points="10,8 16,12 10,16"/></svg>
-      </div>
-      <div class="ch-info">
-        <span class="ch-title">Beyaz Kurt</span>
-        <span class="ch-yt-badge">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M21.58 7.19a2.72 2.72 0 0 0-1.91-1.93C18 4.9 12 4.9 12 4.9s-6 0-7.67.36A2.72 2.72 0 0 0 2.42 7.19 28.5 28.5 0 0 0 2.06 12a28.5 28.5 0 0 0 .36 4.81 2.72 2.72 0 0 0 1.91 1.93C6 19.1 12 19.1 12 19.1s6 0 7.67-.36a2.72 2.72 0 0 0 1.91-1.93A28.5 28.5 0 0 0 21.94 12a28.5 28.5 0 0 0-.36-4.81zM10 15.5v-7l6 3.5z"/></svg>
-          Ana Kanal
-        </span>
-      </div>
-    </a>
-
-    <a class="ch-card" href="https://www.youtube.com/@beyazkurtoyun" target="_blank" rel="noopener">
-      <img class="ch-banner" id="b1" alt="Beyaz Kurt Oyun kanal kapağı">
-      <div class="ch-banner-placeholder" id="p1">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="1.2"><rect x="2" y="4" width="20" height="16" rx="3"/><polygon points="10,8 16,12 10,16"/></svg>
-      </div>
-      <div class="ch-info">
-        <span class="ch-title">Oyun</span>
-        <span class="ch-yt-badge">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M21.58 7.19a2.72 2.72 0 0 0-1.91-1.93C18 4.9 12 4.9 12 4.9s-6 0-7.67.36A2.72 2.72 0 0 0 2.42 7.19 28.5 28.5 0 0 0 2.06 12a28.5 28.5 0 0 0 .36 4.81 2.72 2.72 0 0 0 1.91 1.93C6 19.1 12 19.1 12 19.1s6 0 7.67-.36a2.72 2.72 0 0 0 1.91-1.93A28.5 28.5 0 0 0 21.94 12a28.5 28.5 0 0 0-.36-4.81zM10 15.5v-7l6 3.5z"/></svg>
-          Oyun Kanalı
-        </span>
-      </div>
-    </a>
-
-    <a class="ch-card" href="https://www.youtube.com/@BeyazKurtPodcast" target="_blank" rel="noopener">
-      <img class="ch-banner" id="b2" alt="Beyaz Kurt Podcast kanal kapağı">
-      <div class="ch-banner-placeholder" id="p2">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="1.2"><rect x="2" y="4" width="20" height="16" rx="3"/><polygon points="10,8 16,12 10,16"/></svg>
-      </div>
-      <div class="ch-info">
-        <span class="ch-title">Podcast</span>
-        <span class="ch-yt-badge">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M21.58 7.19a2.72 2.72 0 0 0-1.91-1.93C18 4.9 12 4.9 12 4.9s-6 0-7.67.36A2.72 2.72 0 0 0 2.42 7.19 28.5 28.5 0 0 0 2.06 12a28.5 28.5 0 0 0 .36 4.81 2.72 2.72 0 0 0 1.91 1.93C6 19.1 12 19.1 12 19.1s6 0 7.67-.36a2.72 2.72 0 0 0 1.91-1.93A28.5 28.5 0 0 0 21.94 12a28.5 28.5 0 0 0-.36-4.81zM10 15.5v-7l6 3.5z"/></svg>
-          Podcast Kanalı
-        </span>
-      </div>
-    </a>
-
-    <a class="ch-card" href="https://www.youtube.com/@beyazkurtkesit" target="_blank" rel="noopener">
-      <img class="ch-banner" id="b3" alt="Beyaz Kurt Kesitleri kanal kapağı">
-      <div class="ch-banner-placeholder" id="p3">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="1.2"><rect x="2" y="4" width="20" height="16" rx="3"/><polygon points="10,8 16,12 10,16"/></svg>
-      </div>
-      <div class="ch-info">
-        <span class="ch-title">Kesitleri</span>
-        <span class="ch-yt-badge">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M21.58 7.19a2.72 2.72 0 0 0-1.91-1.93C18 4.9 12 4.9 12 4.9s-6 0-7.67.36A2.72 2.72 0 0 0 2.42 7.19 28.5 28.5 0 0 0 2.06 12a28.5 28.5 0 0 0 .36 4.81 2.72 2.72 0 0 0 1.91 1.93C6 19.1 12 19.1 12 19.1s6 0 7.67-.36a2.72 2.72 0 0 0 1.91-1.93A28.5 28.5 0 0 0 21.94 12a28.5 28.5 0 0 0-.36-4.81zM10 15.5v-7l6 3.5z"/></svg>
-          Kesit Kanalı
-        </span>
-      </div>
-    </a>
-
-    <a class="ch-card" href="https://www.youtube.com/@beyazkurtreal" target="_blank" rel="noopener" style="grid-column:1/-1;">
-      <img class="ch-banner" id="b4" alt="Beyaz Kurt Gündem kanal kapağı">
-      <div class="ch-banner-placeholder" id="p4">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="1.2"><rect x="2" y="4" width="20" height="16" rx="3"/><polygon points="10,8 16,12 10,16"/></svg>
-      </div>
-      <div class="ch-info">
-        <span class="ch-title">Gündem</span>
-        <span class="ch-yt-badge">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M21.58 7.19a2.72 2.72 0 0 0-1.91-1.93C18 4.9 12 4.9 12 4.9s-6 0-7.67.36A2.72 2.72 0 0 0 2.42 7.19 28.5 28.5 0 0 0 2.06 12a28.5 28.5 0 0 0 .36 4.81 2.72 2.72 0 0 0 1.91 1.93C6 19.1 12 19.1 12 19.1s6 0 7.67-.36a2.72 2.72 0 0 0 1.91-1.93A28.5 28.5 0 0 0 21.94 12a28.5 28.5 0 0 0-.36-4.81zM10 15.5v-7l6 3.5z"/></svg>
-          Gündem & Haber
-        </span>
-      </div>
-    </a>
-  </div>
-
-  <div class="section-label">Sosyal Medya</div>
-  <div class="divider"></div>
-
-  <div class="social-list">
-    <a class="soc-link" href="https://www.instagram.com/beyazkurtrealx/" target="_blank" rel="noopener">
-      <div class="soc-icon ic-instagram">
-        <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="#E1306C" stroke-width="1.5"/><circle cx="12" cy="12" r="4.5" stroke="#E1306C" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="#E1306C"/></svg>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:2px;flex:1">
-        <span class="soc-name">Instagram</span>
-        <span class="soc-handle">@beyazkurtrealx</span>
-      </div>
-      <span class="arrow">›</span>
-    </a>
-
-    <a class="soc-link" href="https://twitter.com/beyazkurtreal" target="_blank" rel="noopener">
-      <div class="soc-icon ic-twitter">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M4 4L10.5 12.5M20 4L13.5 12.5M10.5 12.5L7 20H12L13.5 12.5M10.5 12.5H13.5" stroke="#1DA1F2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:2px;flex:1">
-        <span class="soc-name">X / Twitter</span>
-        <span class="soc-handle">@beyazkurtreal</span>
-      </div>
-      <span class="arrow">›</span>
-    </a>
-
-    <a class="soc-link" href="https://open.spotify.com/show/5K3k6vI14uSUQCBBCLNbGH" target="_blank" rel="noopener">
-      <div class="soc-icon ic-spotify">
-        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.5" stroke="#1DB954" stroke-width="1.5"/><path d="M7.5 15.5C9.5 14.5 13 14 16.5 15" stroke="#1DB954" stroke-width="1.5" stroke-linecap="round"/><path d="M7 12.5C9.5 11 13.5 10.5 17 12" stroke="#1DB954" stroke-width="1.5" stroke-linecap="round"/><path d="M7.5 9.5C10 8 14.5 7.5 17.5 9" stroke="#1DB954" stroke-width="1.5" stroke-linecap="round"/></svg>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:2px;flex:1">
-        <span class="soc-name">Spotify</span>
-        <span class="soc-handle">Beyaz Kurt Podcast</span>
-      </div>
-      <span class="arrow">›</span>
-    </a>
-
-    <a class="soc-link" href="https://discord.com/invite/beyazkurt" target="_blank" rel="noopener">
-      <div class="soc-icon ic-discord">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M20.3 4.37A19.8 19.8 0 0 0 15.6 3c-.22.38-.47.89-.64 1.3a18.3 18.3 0 0 0-5.93 0A13.5 13.5 0 0 0 8.4 3C6.7 3.35 5.1 3.9 3.7 4.37 1.04 8.35.35 12.23.7 16.05a20 20 0 0 0 6.17 3.1c.5-.68.94-1.4 1.32-2.16a13 13 0 0 1-2.07-1c.17-.12.34-.25.5-.38a14.2 14.2 0 0 0 12.1 0c.17.13.33.26.5.38a13 13 0 0 1-2.08 1c.38.76.82 1.48 1.32 2.16a19.9 19.9 0 0 0 6.18-3.1c.4-4.46-.62-8.3-3.34-11.68zM8.35 13.63c-1.1 0-2-1.02-2-2.27s.88-2.27 2-2.27c1.1 0 2 1.02 2 2.27s-.9 2.27-2 2.27zm7.3 0c-1.1 0-2-1.02-2-2.27s.88-2.27 2-2.27c1.1 0 2 1.02 2 2.27s-.88 2.27-2 2.27z" fill="#7289DA"/></svg>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:2px;flex:1">
-        <span class="soc-name">Discord</span>
-        <span class="soc-handle">Beyaz Kurt Sunucusu</span>
-      </div>
-      <span class="arrow">›</span>
-    </a>
-  </div>
-
-  <div class="footer-line">beyaz kurt · tüm hakları saklıdır</div>
+  <div class="hero-name">BEYAZ <span>KURT</span></div>
+  <div class="hero-sub">Gündem &nbsp;·&nbsp; Oyun &nbsp;·&nbsp; Podcast &nbsp;·&nbsp; Kesit</div>
 </div>
 
-<script>
-  const channels = [
-    { imgId: 'b0', phId: 'p0', channelId: 'UCvzpmRfiLNxKRFRQTKrUang' },
-    { imgId: 'b1', phId: 'p1', channelId: 'UCW2bxDKDmwHBGeMN9yddung' },
-    { imgId: 'b2', phId: 'p2', channelId: 'UCY-McBniP83Jd8d_cld1fOw' },
-    { imgId: 'b3', phId: 'p3', channelId: 'UC7JIQLMbFssGNKpKXRjfeog' },
-    { imgId: 'b4', phId: 'p4', channelId: 'UCuYEeJBMI87FuhkJjJkD2Wg' },
-  ];
+<div class="wrap">
 
-  channels.forEach(({ imgId, phId, channelId }) => {
-    const img = document.getElementById(imgId);
-    const ph  = document.getElementById(phId);
-    if (!img) return;
-    img.src = `https://yt3.googleusercontent.com/${channelId}/banner`;
-    img.onerror = () => {
-      img.style.display = 'none';
-      if (ph) ph.style.display = 'flex';
-    };
-  });
+  <!-- YOUTUBE CHANNELS -->
+  <div class="sec">
+    <div class="sec-head">
+      <div class="sec-label">YouTube Kanalları</div>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="yt-grid">
+
+      <!-- ANA KANAL -->
+      <a class="yt-card main" href="https://www.youtube.com/@BeyazKurt" target="_blank" rel="noopener">
+        <div class="yt-avatar-wrap">
+          <img id="av0" src="" alt="Beyaz Kurt">
+        </div>
+        <div class="yt-body">
+          <div class="yt-title">Beyaz Kurt</div>
+          <div class="yt-desc">Ana Kanal · Podcast · Gündem</div>
+          <div class="yt-badge">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="#ff2d2d"><path d="M21.58 7.19a2.72 2.72 0 0 0-1.91-1.93C18 4.9 12 4.9 12 4.9s-6 0-7.67.36A2.72 2.72 0 0 0 2.42 7.19 28.5 28.5 0 0 0 2.06 12a28.5 28.5 0 0 0 .36 4.81 2.72 2.72 0 0 0 1.91 1.93C6 19.1 12 19.1 12 19.1s6 0 7.67-.36a2.72 2.72 0 0 0 1.91-1.93A28.5 28.5 0 0 0 21.94 12a28.5 28.5 0 0 0-.36-4.81zM10 15.5v-7l6 3.5z"/></svg>
+            Ana Kanal
+          </div>
+        </div>
+        <div class="yt-arrow">›</div>
+      </a>
+
+      <!-- OYUN -->
+      <a class="yt-card" href="https://www.youtube.com/@beyazkurtoyun" target="_blank" rel="noopener">
+        <div class="yt-avatar-wrap">
+          <img id="av1" src="" alt="Beyaz Kurt Oyun">
+        </div>
+        <div class="yt-body">
+          <div class="yt-title">Beyaz Kurt Oyun</div>
+          <div class="yt-desc">Oyun İçerikleri</div>
+          <div class="yt-badge">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="#ff2d2d"><path d="M21.58 7.19a2.72 2.72 0 0 0-1.91-1.93C18 4.9 12 4.9 12 4.9s-6 0-7.67.36A2.72 2.72 0 0 0 2.42 7.19 28.5 28.5 0 0 0 2.06 12a28.5 28.5 0 0 0 .36 4.81 2.72 2.72 0 0 0 1.91 1.93C6 19.1 12 19.1 12 19.1s6 0 7.67-.36a2.72 2.72 0 0 0 1.91-1.93A28.5 28.5 0 0 0 21.94 12a28.5 28.5 0 0 0-.36-4.81zM10 15.5v-7l6 3.5z"/></svg>
+            Oyun Kanalı
+          </div>
+        </div>
+        <div class="yt-arrow">›</div>
+      </a>
+
+      <!-- PODCAST -->
+      <a class="yt-card" href="https://www.youtube.com/@BeyazKurtPodcast" target="_blank" rel="noopener">
+        <div class="yt-avatar-wrap">
+          <img id="av2" src="" alt="Beyaz Kurt Podcast">
+        </div>
+        <div class="yt-body">
+          <div class="yt-title">Beyaz Kurt Podcast</div>
+          <div class="yt-desc">Podcast Kanalı</div>
+          <div class="yt-badge">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="#ff2d2d"><path d="M21.58 7.19a2.72 2.72 0 0 0-1.91-1.93C18 4.9 12 4.9 12 4.9s-6 0-7.67.36A2.72 2.72 0 0 0 2.42 7.19 28.5 28.5 0 0 0 2.06 12a28.5 28.5 0 0 0 .36 4.81 2.72 2.72 0 0 0 1.91 1.93C6 19.1 12 19.1 12 19.1s6 0 7.67-.36a2.72 2.72 0 0 0 1.91-1.93A28.5 28.5 0 0 0 21.94 12a28.5 28.5 0 0 0-.36-4.81zM10 15.5v-7l6 3.5z"/></svg>
+            Podcast Kanalı
+          </div>
+        </div>
+        <div class="yt-arrow">›</div>
+      </a>
+
+      <!-- KESİT -->
+      <a class="yt-card" href="https://www.youtube.com/@beyazkurtkesit" target="_blank" rel="noopener">
+        <div class="yt-avatar-wrap">
+          <img id="av3" src="" alt="Beyaz Kurt Kesitleri">
+        </div>
+        <div class="yt-body">
+          <div class="yt-title">Beyaz Kurt Kesitleri</div>
+          <div class="yt-desc">En İyi Anlar</div>
+          <div class="yt-badge">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="#ff2d2d"><path d="M21.58 7.19a2.72 2.72 0 0 0-1.91-1.93C18 4.9 12 4.9 12 4.9s-6 0-7.67.36A2.72 2.72 0 0 0 2.42 7.19 28.5 28.5 0 0 0 2.06 12a28.5 28.5 0 0 0 .36 4.81 2.72 2.72 0 0 0 1.91 1.93C6 19.1 12 19.1 12 19.1s6 0 7.67-.36a2.72 2.72 0 0 0 1.91-1.93A28.5 28.5 0 0 0 21.94 12a28.5 28.5 0 0 0-.36-4.81zM10 15.5v-7l6 3.5z"/></svg>
+            Kesit Kanalı
+          </div>
+        </div>
+        <div class="yt-arrow">›</div>
+      </a>
+
+      <!-- GÜNDEM -->
+      <a class="yt-card" href="https://www.youtube.com/@beyazkurtreal" target="_blank" rel="noopener">
+        <div class="yt-avatar-wrap">
+          <img id="av4" src="" alt="Beyaz Kurt Gündem">
+        </div>
+        <div class="yt-body">
+          <div class="yt-title">Beyaz Kurt Gündem</div>
+          <div class="yt-desc">Güncel & Haber</div>
+          <div class="yt-badge">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="#ff2d2d"><path d="M21.58 7.19a2.72 2.72 0 0 0-1.91-1.93C18 4.9 12 4.9 12 4.9s-6 0-7.67.36A2.72 2.72 0 0 0 2.42 7.19 28.5 28.5 0 0 0 2.06 12a28.5 28.5 0 0 0 .36 4.81 2.72 2.72 0 0 0 1.91 1.93C6 19.1 12 19.1 12 19.1s6 0 7.67-.36a2.72 2.72 0 0 0 1.91-1.93A28.5 28.5 0 0 0 21.94 12a28.5 28.5 0 0 0-.36-4.81zM10 15.5v-7l6 3.5z"/></svg>
+            Gündem Kanalı
+          </div>
+        </div>
+        <div class="yt-arrow">›</div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- SOCIAL MEDIA -->
+  <div class="sec">
+    <div class="sec-head">
+      <div class="sec-label">Sosyal Medya</div>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="soc-list">
+
+      <!-- Instagram -->
+      <a class="soc-card" href="https://www.instagram.com/beyazkurtrealx/" target="_blank" rel="noopener">
+        <div class="soc-icon bg-ig">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <rect x="2" y="2" width="20" height="20" rx="6" stroke="#E1306C" stroke-width="1.8"/>
+            <circle cx="12" cy="12" r="4.5" stroke="#E1306C" stroke-width="1.8"/>
+            <circle cx="17.5" cy="6.5" r="1.2" fill="#E1306C"/>
+          </svg>
+        </div>
+        <div class="soc-info">
+          <span class="soc-name">Instagram</span>
+          <span class="soc-handle">@beyazkurtrealx</span>
+        </div>
+        <span class="soc-arr">›</span>
+      </a>
+
+      <!-- X / Twitter -->
+      <a class="soc-card" href="https://twitter.com/beyazkurtreal" target="_blank" rel="noopener">
+        <div class="soc-icon bg-x">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L2.1 2.25h6.946l4.27 5.643L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>
+          </svg>
+        </div>
+        <div class="soc-info">
+          <span class="soc-name">X / Twitter</span>
+          <span class="soc-handle">@beyazkurtreal</span>
+        </div>
+        <span class="soc-arr">›</span>
+      </a>
+
+      <!-- Spotify -->
+      <a class="soc-card" href="https://open.spotify.com/show/5K3k6vI14uSUQCBBCLNbGH" target="_blank" rel="noopener">
+        <div class="soc-icon bg-sp">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" stroke="#1DB954" stroke-width="1.8"/>
+            <path d="M7.5 15.5C9.5 14.5 13 14 16.5 15" stroke="#1DB954" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M7 12.5C9.5 11 13.5 10.5 17 12" stroke="#1DB954" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M7.5 9.5C10 8 14.5 7.5 17.5 9" stroke="#1DB954" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="soc-info">
+          <span class="soc-name">Spotify</span>
+          <span class="soc-handle">Beyaz Kurt Podcast</span>
+        </div>
+        <span class="soc-arr">›</span>
+      </a>
+
+      <!-- Discord -->
+      <a class="soc-card" href="https://discord.com/invite/beyazkurt" target="_blank" rel="noopener">
+        <div class="soc-icon bg-dc">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#7289DA">
+            <path d="M20.3 4.37A19.8 19.8 0 0 0 15.6 3c-.22.38-.47.89-.64 1.3a18.3 18.3 0 0 0-5.93 0A13.5 13.5 0 0 0 8.4 3C6.7 3.35 5.1 3.9 3.7 4.37 1.04 8.35.35 12.23.7 16.05a20 20 0 0 0 6.17 3.1c.5-.68.94-1.4 1.32-2.16a13 13 0 0 1-2.07-1c.17-.12.34-.25.5-.38a14.2 14.2 0 0 0 12.1 0c.17.13.33.26.5.38a13 13 0 0 1-2.08 1c.38.76.82 1.48 1.32 2.16a19.9 19.9 0 0 0 6.18-3.1c.4-4.46-.62-8.3-3.34-11.68zM8.35 13.63c-1.1 0-2-1.02-2-2.27s.88-2.27 2-2.27c1.1 0 2 1.02 2 2.27s-.9 2.27-2 2.27zm7.3 0c-1.1 0-2-1.02-2-2.27s.88-2.27 2-2.27c1.1 0 2 1.02 2 2.27s-.88 2.27-2 2.27z"/>
+          </svg>
+        </div>
+        <div class="soc-info">
+          <span class="soc-name">Discord</span>
+          <span class="soc-handle">Beyaz Kurt Sunucusu</span>
+        </div>
+        <span class="soc-arr">›</span>
+      </a>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">🐺 &nbsp;<span>beyaz kurt</span>&nbsp; · tüm hakları saklıdır</div>
+
+<script>
+// Channel ID'leri — profil fotoğrafları için
+// Format: https://yt3.ggpht.com/{channel_id}=s200-c-k-c0x00ffffff-no-rj
+const channels = [
+  { id: 'av0', channelId: 'UC_gDW50IarbxpCycmrIlrtw' }, // Ana kanal
+  { id: 'av1', channelId: 'UCW2bxDKDmwHBGeMN9yddung' }, // Oyun
+  { id: 'av2', channelId: 'UCY-McBniP83Jd8d_cld1fOw' }, // Podcast
+  { id: 'av3', channelId: 'UCce0zD0yA2_SaeHPtcL448A' }, // Kesit
+  { id: 'av4', channelId: 'UCvzpmRfiLNxKRFRQTKrUang' }, // Gündem
+];
+
+// YouTube profil fotoğrafı için iki farklı URL formatı dene
+const formats = [
+  id => `https://yt3.ggpht.com/${id}=s200-c-k-c0x00ffffff-no-rj`,
+  id => `https://yt3.googleusercontent.com/${id}=s200-c-k-c0x00ffffff-no-rj`,
+  id => `https://yt3.ggpht.com/ytc/${id}=s200`,
+];
+
+channels.forEach(({ id, channelId }) => {
+  const img = document.getElementById(id);
+  if (!img) return;
+
+  let tried = 0;
+  function tryNext() {
+    if (tried >= formats.length) {
+      // tüm formatlar başarısız — placeholder
+      img.parentElement.innerHTML = `
+        <div class="yt-avatar-placeholder">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="1.2">
+            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+          </svg>
+        </div>`;
+      return;
+    }
+    img.src = formats[tried](channelId);
+    tried++;
+  }
+
+  img.onerror = tryNext;
+  tryNext();
+});
 </script>
 </body>
 </html>
